@@ -62,12 +62,12 @@
       ],
       "maintainer": "Pietro Passarelli <pietro.passarelli@gmail.com>",
       "files": [
-        "!node_modules/ffmpeg-static/bin/linux/ia32${/*}",
-        "!node_modules/ffmpeg-static/bin/win${/*}",
-        "!node_modules/ffmpeg-static/bin/mac${/*}",
-        "!node_modules/ffprobe-static/bin/linux/ia32${/*}",
-        "!node_modules/ffprobe-static/bin/win${/*}",
-        "!node_modules/ffprobe-static/bin/mac${/*}"
+        "!lib/ffmpeg-static/bin/linux/ia32${/*}",
+        "!lib/ffmpeg-static/bin/win${/*}",
+        "!lib/ffmpeg-static/bin/mac${/*}",
+        "!lib/ffprobe-static/bin/linux/ia32${/*}",
+        "!lib/ffprobe-static/bin/win${/*}",
+        "!lib/ffprobe-static/bin/mac${/*}"
       ]
     },
     "deb": {
@@ -95,25 +95,26 @@
       "target": "portable",
       "icon": "build/icon.ico",
       "files": [
-        "node_modules/ffmpeg-static/bin/win/${arch}/ffmpeg",
-        "!node_modules/ffmpeg-static/bin/win/ia32${/*}",
-        "!node_modules/ffmpeg-static/bin/linux${/*}",
-        "!node_modules/ffmpeg-static/bin/mac${/*}",
-        "node_modules/ffprobe-static/bin/win/${arch}/ffprobe",
-        "!node_modules/ffprobe-static/bin/win/ia32${/*}",
-        "!node_modules/ffprobe-static/bin/linux${/*}",
-        "!node_modules/ffprobe-static/bin/mac${/*}"
+        "lib/ffmpeg-static/bin/win/${arch}/ffmpeg",
+        "!lib/ffmpeg-static/bin/win/ia32${/*}",
+        "!lib/ffmpeg-static/bin/linux${/*}",
+        "!lib/ffmpeg-static/bin/mac${/*}",
+        "lib/ffprobe-static/bin/win/${arch}/ffprobe",
+        "!lib/ffprobe-static/bin/win/ia32${/*}",
+        "!lib/ffprobe-static/bin/linux${/*}",
+        "!lib/ffprobe-static/bin/mac${/*}"
       ]
     }
   },
   "author": "Pietro Passarelli <pietro.passarelli@gmail.com> (http://pietropassarelli.com)",
   "license": "MIT",
   "dependencies": {
+    "ajv": "^5.5.2",
+    "async": "^2.6.1",
     "backbone": "^1.3.3",
     "bootstrap": "^3.3.7",
+    "debug": "^3.1.0",
     "electron-debug": "^1.1.0",
-    "ffmpeg-static": "https://github.com/pietrop/ffmpeg-static.git",
-    "ffprobe-static": "https://github.com/pietrop/ffprobe-static.git",
     "file-saver": "^1.3.3",
     "fluent-ffmpeg": "^2.1.0",
     "jquery": "1.12.4",
@@ -124,10 +125,11 @@
     "mousetrap": "^1.6.0",
     "node-timecodes": "^2.4.1",
     "node-underscorify": "0.0.14",
-    "speechmatics": "git+https://github.com/pietrop/speechmatics.git",
     "path": "^0.12.7",
     "request": "^2.81.0",
     "require-globify": "^1.4.1",
+    "speechmatics": "^2.1.0",
+    "tmp": "0.0.33",
     "underscore": "^1.8.3",
     "underscore.string": "^3.3.4",
     "watson-developer-cloud": "2.4.1"

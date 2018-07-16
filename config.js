@@ -3,8 +3,8 @@ var path               = require("path");
 // var appDir = path.resolve("./package.json");
 
 // const {app} = require('electron');
-var ffmpegPath        = require('ffmpeg-static').path;
-var ffprobePath       = require('ffprobe-static').path;
+var ffmpegPath        = require('./lib/ffmpeg-static').path;
+var ffprobePath       = require('./lib/ffprobe-static').path;
 
 module.exports = {
   serverUrl: '',
