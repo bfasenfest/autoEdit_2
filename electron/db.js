@@ -24,8 +24,6 @@ var medeadown = require('medeadown');
 // var dataPath = window.nw.App.dataPath;
 var dataPath = currentWindow.dataPath; 
 
-// console.log()
-
 
 LinvoDB.defaults.store = { db: medeadown };
 
@@ -45,6 +43,7 @@ var papereditOptions = {};
 
 var Transcription = new LinvoDB(transcriptionModel, transcriptionSchema, transcriptionOptions);
 var Paperedit = new LinvoDB(papereditModel, papereditSchema, papereditOptions);
+
 
 var DB = {};
 
@@ -364,7 +363,8 @@ DB.delete = function(model, success, error) {
   if (model.constructor.modelType == 'transcription') {
     // looks in database using transcription id
     // worth looking into alternative
-    // https://github.com/Ivshti/linvodb3#removing-from-the-collection
+    //https://github.com/Ivshti/linvodb3#removing-from-the-collection 
+    # https://github.com/Ivshti/linvodb3#removing
     Transcription.remove({ _id: model.get('_id') }, {multi: false }, function (err, numRemoved) {
       if (err) {
         console.error(err);
@@ -384,6 +384,10 @@ DB.delete = function(model, success, error) {
           fs.unlinkSync(model.attributes.audioFile);
         }
         // returns sucess callback
+        // TESTING if this solves issue with deleted transcription reapiring 
+        // https://github.com/OpenNewsLabs/autoEdit_2/issues/54
+        // Transcription.compact();
+
         success(model);
       }
     });
@@ -400,6 +404,10 @@ DB.delete = function(model, success, error) {
         // removing media associated with transcription.
         // TODO: this only deletes the video if the video has done processing. think about refactoring so that attribute can be present before processing starts. As it is now this means incomplete vidoes are left in the folder if the transcription is deleted
         // returns sucess callback
+         // TESTING if this solves issue with deleted transcription reapiring 
+        // https://github.com/OpenNewsLabs/autoEdit_2/issues/54
+        // Paperedit.compact();
+        
         success(model);
       }
     });
