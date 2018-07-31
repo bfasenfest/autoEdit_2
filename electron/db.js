@@ -197,7 +197,9 @@ DB.create = function(model, success, error){
           console.log('cbVideo: ', respV);
           // updating current transcription with webm html5 video preview.
           Transcription.findOne({ _id: transcription._id }, function (err, trs) {
-            console.error('cbVideo err: ',err);
+            if(err){
+              console.error('cbVideo err: ',err);
+            }
             console.log('cbVideo inside trs findOne respV', respV);
             // updating transcription attributes with result
             trs.videoOgg = respV.videoOgg;
