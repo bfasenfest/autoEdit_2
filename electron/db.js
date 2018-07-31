@@ -363,8 +363,8 @@ DB.delete = function(model, success, error) {
   if (model.constructor.modelType == 'transcription') {
     // looks in database using transcription id
     // worth looking into alternative
-    //https://github.com/Ivshti/linvodb3#removing-from-the-collection 
-    # https://github.com/Ivshti/linvodb3#removing
+    // https://github.com/Ivshti/linvodb3#removing-from-the-collection 
+    // https://github.com/Ivshti/linvodb3#removing
     Transcription.remove({ _id: model.get('_id') }, {multi: false }, function (err, numRemoved) {
       if (err) {
         console.error(err);
